@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Volleyball</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="draw_teams">Draw teams</string>
+    <string name="check_stats">Check stats</string>
+    <string name="bottle_draw">Bottle draw</string>
+    <string name="_1_2_draw">1 2 draw</string>
+    <string name="auto_draw">Auto draw</string>
+    <string name="draw">Draw</string>
+    <string name="team_a">Team A</string>
+    <string name="team_b">Team B</string>
+    <string name="draw_again">Draw again</string>
+    <string name="count_players">Count Players</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="nick">Nick</string>
+    <string name="add">Add</string>
+</resources>
