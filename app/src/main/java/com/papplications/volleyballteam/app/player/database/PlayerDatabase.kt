@@ -1,10 +1,10 @@
-package com.papplications.volleyballteam.app.match.database
+package com.papplications.volleyballteam.app.player.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.papplications.volleyballteam.app.match.model.Player
+import com.papplications.volleyballteam.app.player.model.Player
 
 @Database(entities = [Player::class], version = 1, exportSchema = false)
 abstract class PlayerDatabase: RoomDatabase() {
@@ -15,7 +15,7 @@ abstract class PlayerDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: PlayerDatabase? = null
 
-        fun getDatabase(context: Context): PlayerDatabase{
+        fun getDatabase(context: Context): PlayerDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null){
                 return tempInstance

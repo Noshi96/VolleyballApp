@@ -31,6 +31,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chip_group" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_players_choose"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chip_group" />
+
         <Button
             android:id="@+id/button_draw"
             android:layout_width="wrap_content"

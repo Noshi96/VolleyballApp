@@ -1,11 +1,8 @@
-package com.papplications.volleyballteam.app.match.database
+package com.papplications.volleyballteam.app.player.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import com.papplications.volleyballteam.app.match.model.Player
+import androidx.room.*
+import com.papplications.volleyballteam.app.player.model.Player
 
 @Dao
 interface PlayerDao {
@@ -15,4 +12,7 @@ interface PlayerDao {
 
     @Query("Select * FROM player_table ORDER BY id ASC")
     fun fetchAllData(): LiveData<List<Player>>
+
+    @Update
+    suspend fun updatePlayer(player: Player)
 }

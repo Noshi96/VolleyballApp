@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_choosePlayersFragment_to_addPlayerFragment"
             app:destination="@id/addPlayerFragment" />
+        <action
+            android:id="@+id/action_choosePlayersFragment_to_updatePlayerFragment"
+            app:destination="@id/updatePlayerFragment" />
     </fragment>
     <fragment
         android:id="@+id/drawFragment"
@@ -41,10 +44,21 @@
     </fragment>
     <fragment
         android:id="@+id/addPlayerFragment"
-        android:name="com.papplications.volleyballteam.app.match.view.add.AddPlayerFragment"
+        android:name="com.papplications.volleyballteam.app.player.view.add.AddPlayerFragment"
         android:label="Add Player" >
         <action
             android:id="@+id/action_addPlayerFragment_to_choosePlayersFragment"
             app:destination="@id/choosePlayersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updatePlayerFragment"
+        android:name="com.papplications.volleyballteam.app.player.view.update.UpdatePlayerFragment"
+        android:label="UpdatePlayerFragment" >
+        <action
+            android:id="@+id/action_updatePlayerFragment_to_choosePlayersFragment"
+            app:destination="@id/choosePlayersFragment" />
+        <argument
+            android:name="currentPlayer"
+            app:argType="com.papplications.volleyballteam.app.player.model.Player" />
     </fragment>
 </navigation>

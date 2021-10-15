@@ -17,6 +17,15 @@
                             <option name="y" value="364" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_addPlayerFragment_to_choosePlayersFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -31,6 +40,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_choosePlayersFragment_to_addPlayerFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_choosePlayersFragment_to_drawFragment">
                               <value>
                                 <LayoutPositions />
@@ -91,6 +105,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="updatePlayerFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="433" />
+                            <option name="y" value="-268" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
