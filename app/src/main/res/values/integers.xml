@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="max_length_large">100</integer>
+    <integer name="max_length_mid">30</integer>
+    <integer name="max_length_phone_number">15</integer>
+    <integer name="max_length_address">6</integer>
+    <integer name="lines">4</integer>
+
+</resources>
