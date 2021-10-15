@@ -16,4 +16,5 @@
     <string name="name">Name</string>
     <string name="nick">Nick</string>
     <string name="add">Add</string>
+    <string name="update">update</string>
 </resources>

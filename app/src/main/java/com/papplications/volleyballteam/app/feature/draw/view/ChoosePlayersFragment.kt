@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.chip.Chip
 import com.papplications.volleyballteam.R
+import com.papplications.volleyballteam.app.player.adapters.ListAdapter
 import com.papplications.volleyballteam.app.feature.draw.model.ParcelUserInformation
 import com.papplications.volleyballteam.app.feature.draw.viewmodel.DrawViewModel
+import com.papplications.volleyballteam.app.player.viewmodel.MatchViewModel
 import com.papplications.volleyballteam.databinding.FragmentChoosePlayersBinding
 import org.koin.android.ext.android.inject
 
@@ -20,6 +23,7 @@ import org.koin.android.ext.android.inject
 class ChoosePlayersFragment : Fragment() {
 
     private val viewModel: DrawViewModel by inject()
+    private val matchViewModel: MatchViewModel by inject()
     private lateinit var _binding: FragmentChoosePlayersBinding
     private val binding get() = _binding
 
@@ -32,6 +36,15 @@ class ChoosePlayersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentChoosePlayersBinding.inflate(inflater, container, false)
+
+        val adapter = ListAdapter()
+        val recyclerView = binding.recyclerViewPlayersChoose
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        matchViewModel.fetchAllData.observe(viewLifecycleOwner, Observer{ players->
+            adapter.setData(players)
+        })
 
         setChipsForChipCategories(container)
 
@@ -49,8 +62,6 @@ class ChoosePlayersFragment : Fragment() {
                 userInformationToSend = userInformation
             }
         }
-
-
 
         binding.buttonDraw.setOnClickListener {
             val passWithBundle = bundleOf("BUNDLE_KEY" to userInformationToSend)

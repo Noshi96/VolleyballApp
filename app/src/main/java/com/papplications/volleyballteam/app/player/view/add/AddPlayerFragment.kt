@@ -1,4 +1,4 @@
-package com.papplications.volleyballteam.app.match.view.add
+package com.papplications.volleyballteam.app.player.view.add
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.papplications.volleyballteam.app.match.model.Player
-import com.papplications.volleyballteam.app.match.viewmodel.MatchViewModel
+import com.papplications.volleyballteam.app.player.model.Player
+import com.papplications.volleyballteam.app.player.viewmodel.MatchViewModel
 import com.papplications.volleyballteam.databinding.FragmentAddPlayerBinding
 import org.koin.android.ext.android.inject
 
@@ -35,10 +35,13 @@ class AddPlayerFragment : Fragment() {
     }
 
     private fun insertDataToDatabase() {
-        val name = binding.editTextName.editText.toString()
-        val nick = binding.editTextNick.editText.toString()
+        var name = binding.editTextNameInsert.editText?.text.toString()
+        val nick = binding.editTextNickInsert.editText?.text.toString()
 
-        val player = Player(id=0,name=name, nick=nick, img="")
+        if (nick.isNotEmpty()){
+            name = "$name($nick)"
+        }
+        val player = Player(id=0,name=name, img="")
         viewModel.addPlayer(player)
 
         val action = AddPlayerFragmentDirections.actionAddPlayerFragmentToChoosePlayersFragment()

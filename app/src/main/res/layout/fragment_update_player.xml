@@ -6,10 +6,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".app.player.view.add.AddPlayerFragment">
+        tools:context=".app.player.view.update.UpdatePlayerFragment">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_text_name_insert"
+            android:id="@+id/edit_text_name_update"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
@@ -24,46 +24,22 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_name_update_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
-                android:maxLength="@integer/max_length_mid"
-                android:text="" />
+                android:maxLength="@integer/max_length_mid"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/edit_text_nick_insert"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="@dimen/dp_0"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start"
-            android:layout_marginEnd="@dimen/margin_start"
-            android:layout_marginTop="@dimen/margin_top_short"
-            android:hint="@string/nick"
-            app:counterEnabled="true"
-            app:counterMaxLength="@integer/max_length_mid"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_text_name_insert">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:maxLength="@integer/max_length_mid"
-                android:text="" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button_add_player"
+            android:id="@+id/button_update_player"
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:layout_marginEnd="@dimen/margin_end_24"
             android:layout_marginBottom="@dimen/margin_bottom_24"
-            android:text="@string/add"
+            android:text="@string/update"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
