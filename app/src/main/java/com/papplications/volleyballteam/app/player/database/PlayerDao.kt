@@ -15,4 +15,11 @@ interface PlayerDao {
 
     @Update
     suspend fun updatePlayer(player: Player)
+
+    @Delete
+    suspend fun deletePlayer(player: Player)
+
+    @Query("DELETE FROM player_table")
+    suspend fun deleteAllPlayers()
+
 }

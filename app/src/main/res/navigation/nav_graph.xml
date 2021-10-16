@@ -31,8 +31,8 @@
             android:id="@+id/action_choosePlayersFragment_to_addPlayerFragment"
             app:destination="@id/addPlayerFragment" />
         <action
-            android:id="@+id/action_choosePlayersFragment_to_updatePlayerFragment"
-            app:destination="@id/updatePlayerFragment" />
+            android:id="@+id/action_choosePlayersFragment_to_playersListFragment"
+            app:destination="@id/playersListFragment" />
     </fragment>
     <fragment
         android:id="@+id/drawFragment"
@@ -53,12 +53,23 @@
     <fragment
         android:id="@+id/updatePlayerFragment"
         android:name="com.papplications.volleyballteam.app.player.view.update.UpdatePlayerFragment"
-        android:label="UpdatePlayerFragment" >
-        <action
-            android:id="@+id/action_updatePlayerFragment_to_choosePlayersFragment"
-            app:destination="@id/choosePlayersFragment" />
+        android:label="Update Player" >
         <argument
             android:name="currentPlayer"
             app:argType="com.papplications.volleyballteam.app.player.model.Player" />
+        <action
+            android:id="@+id/action_updatePlayerFragment_to_choosePlayersFragment"
+            app:destination="@id/choosePlayersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playersListFragment"
+        android:name="com.papplications.volleyballteam.app.player.view.list.PlayersListFragment"
+        android:label="Players List" >
+        <action
+            android:id="@+id/action_playersListFragment_to_updatePlayerFragment"
+            app:destination="@id/updatePlayerFragment" />
+        <action
+            android:id="@+id/action_playersListFragment_to_choosePlayersFragment"
+            app:destination="@id/choosePlayersFragment" />
     </fragment>
 </navigation>

@@ -7,20 +7,20 @@ import androidx.room.RoomDatabase
 import com.papplications.volleyballteam.app.player.model.Player
 
 @Database(entities = [Player::class], version = 1, exportSchema = false)
-abstract class PlayerDatabase: RoomDatabase() {
+abstract class PlayerDatabase : RoomDatabase() {
 
     abstract fun playerDao(): PlayerDao
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: PlayerDatabase? = null
 
         fun getDatabase(context: Context): PlayerDatabase {
             val tempInstance = INSTANCE
-            if (tempInstance != null){
+            if (tempInstance != null) {
                 return tempInstance
             }
-            synchronized(this){
+            synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     PlayerDatabase::class.java,

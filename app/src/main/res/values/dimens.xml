@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="dp_0">0dp</dimen>
-    <dimen name="user_avatar_width">50dp</dimen>
-    <dimen name="user_avatar_height">50dp</dimen>
+    <dimen name="user_avatar_width">65dp</dimen>
+    <dimen name="user_avatar_height">65dp</dimen>
+    <dimen name="user_delete_width">35dp</dimen>
+    <dimen name="user_delete_height">35dp</dimen>
     <dimen name="button_width">100dp</dimen>
     <dimen name="button_height">50dp</dimen>
     <dimen name="margin_start_short">10dp</dimen>

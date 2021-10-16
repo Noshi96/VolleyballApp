@@ -1,21 +1,18 @@
 package com.papplications.volleyballteam.app.feature.draw.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.chip.Chip
 import com.papplications.volleyballteam.R
-import com.papplications.volleyballteam.app.player.adapters.ListAdapter
 import com.papplications.volleyballteam.app.feature.draw.model.ParcelUserInformation
 import com.papplications.volleyballteam.app.feature.draw.viewmodel.DrawViewModel
-import com.papplications.volleyballteam.app.player.viewmodel.MatchViewModel
+import com.papplications.volleyballteam.app.player.viewmodel.PlayerViewModel
 import com.papplications.volleyballteam.databinding.FragmentChoosePlayersBinding
 import org.koin.android.ext.android.inject
 
@@ -23,7 +20,7 @@ import org.koin.android.ext.android.inject
 class ChoosePlayersFragment : Fragment() {
 
     private val viewModel: DrawViewModel by inject()
-    private val matchViewModel: MatchViewModel by inject()
+    private val playerViewModel: PlayerViewModel by inject()
     private lateinit var _binding: FragmentChoosePlayersBinding
     private val binding get() = _binding
 
@@ -37,20 +34,11 @@ class ChoosePlayersFragment : Fragment() {
     ): View {
         _binding = FragmentChoosePlayersBinding.inflate(inflater, container, false)
 
-        val adapter = ListAdapter()
-        val recyclerView = binding.recyclerViewPlayersChoose
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        matchViewModel.fetchAllData.observe(viewLifecycleOwner, Observer{ players->
-            adapter.setData(players)
-        })
-
         setChipsForChipCategories(container)
 
         var userInformationToSend: ParcelUserInformation? = null
 
-        viewModel.checkedChipsNamesList.observe(viewLifecycleOwner){
+        viewModel.checkedChipsNamesList.observe(viewLifecycleOwner) {
             binding.textViewCurrentCheckedNamesSize.text = it.size.toString()
             val userInformation = viewModel.checkedChipsNamesList.value?.let {
                 ParcelUserInformation(
@@ -71,8 +59,15 @@ class ChoosePlayersFragment : Fragment() {
             )
         }
 
-        binding.floatingActionButton.setOnClickListener{
-            val action = ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToAddPlayerFragment()
+        binding.floatingActionButton.setOnClickListener {
+            val action =
+                ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToAddPlayerFragment()
+            findNavController().navigate(action)
+        }
+
+        binding.buttonListWithAllPlayers.setOnClickListener {
+            val action =
+                ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToPlayersListFragment()
             findNavController().navigate(action)
         }
 
@@ -105,8 +100,10 @@ class ChoosePlayersFragment : Fragment() {
         container: ViewGroup?
     ) {
         val chipsList = mutableListOf<Chip>()
-        val playersList = listOf<String>("Paweł", "Mateusz(Kikis)", "Mateusz", "Pati", "Łukasz", "Bartek", "Klaudia",
-            "Sara", "Sandra", "Michał", "Damian")
+        val playersList = listOf<String>(
+            "Paweł", "Mateusz(Kikis)", "Mateusz", "Pati", "Łukasz", "Bartek", "Klaudia",
+            "Sara", "Sandra", "Michał", "Damian"
+        )
         addChipsToViewAndLoadChipsList(playersList, container, chipsList)
 
         setChipsListenerAndUpdateViewModel(chipsList)
@@ -126,9 +123,4 @@ class ChoosePlayersFragment : Fragment() {
             }
         }
     }
-
-    private fun addChip(){
-
-    }
-
 }
