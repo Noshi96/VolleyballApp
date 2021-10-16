@@ -2,7 +2,7 @@ package com.papplications.volleyballteam
 
 import android.app.Application
 import com.papplications.volleyballteam.app.di.drawModule
-import com.papplications.volleyballteam.app.di.matchModule
+import com.papplications.volleyballteam.app.di.playerModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -17,7 +17,7 @@ class VolleyballApplication : Application(){
             androidContext(this@VolleyballApplication)
             modules(
                 drawModule,
-                matchModule
+                playerModule
             )
         }
 

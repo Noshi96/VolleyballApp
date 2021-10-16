@@ -2,11 +2,11 @@ package com.papplications.volleyballteam.app.feature.draw.view
 
 import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import com.papplications.volleyballteam.app.feature.draw.model.ParcelUserInformation
 import com.papplications.volleyballteam.app.feature.draw.viewmodel.DrawViewModel
 import com.papplications.volleyballteam.databinding.FragmentDrawBinding
@@ -27,7 +27,7 @@ class DrawFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDrawBinding.inflate(inflater, container, false)
 
         val names = arguments?.getParcelable<ParcelUserInformation>("BUNDLE_KEY")?.names

@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.papplications.volleyballteam.R
-import com.papplications.volleyballteam.app.feature.draw.view.ChoosePlayersFragmentDirections
 import com.papplications.volleyballteam.app.player.model.Player
+import com.papplications.volleyballteam.app.player.view.list.PlayersListFragmentDirections
 import kotlinx.android.synthetic.main.custom_player_row.view.*
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
@@ -33,7 +33,10 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         val currentItem = playerList[position]
         holder.itemView.textView_name_in_row.text = currentItem.name
         holder.itemView.row_layout.setOnClickListener {
-            val action = ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToUpdatePlayerFragment(currentItem)
+            val action =
+                PlayersListFragmentDirections.actionPlayersListFragmentToUpdatePlayerFragment(
+                    currentItem
+                )
             holder.itemView.findNavController().navigate(action)
         }
     }

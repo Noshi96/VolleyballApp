@@ -10,7 +10,7 @@ import com.papplications.volleyballteam.app.player.model.Player
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MatchViewModel(application: Application): AndroidViewModel(application) {
+class PlayerViewModel(application: Application) : AndroidViewModel(application) {
 
     val fetchAllData: LiveData<List<Player>>
     private val repository: PlayerRepository
@@ -21,15 +21,27 @@ class MatchViewModel(application: Application): AndroidViewModel(application) {
         fetchAllData = repository.fetchAllData
     }
 
-    fun addPlayer(player: Player){
-        viewModelScope.launch(Dispatchers.IO){
+    fun addPlayer(player: Player) {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.addPlayer(player)
         }
     }
 
     fun updatePlayer(updatePlayer: Player) {
-        viewModelScope.launch(Dispatchers.IO){
+        viewModelScope.launch(Dispatchers.IO) {
             repository.updatePlayer(updatePlayer)
+        }
+    }
+
+    fun deletePlayer(player: Player) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deletePlayer(player)
+        }
+    }
+
+    fun deleteAllPlayers() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllPlayers()
         }
     }
 
