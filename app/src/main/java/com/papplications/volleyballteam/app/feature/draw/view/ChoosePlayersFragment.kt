@@ -24,17 +24,20 @@ class ChoosePlayersFragment : Fragment() {
     private lateinit var _binding: FragmentChoosePlayersBinding
     private val binding get() = _binding
 
-    companion object {
-        fun newInstance() = ChoosePlayersFragment()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentChoosePlayersBinding.inflate(inflater, container, false)
 
-        setChipsForChipCategories(container)
+        val playersList = mutableListOf<String>()
+        playerViewModel.fetchAllData.observe(viewLifecycleOwner, { players ->
+            playersList.clear()
+            players.forEach { player ->
+                playersList.add(player.name)
+            }
+            setChipsForChipCategories(container, playersList)
+        })
 
         var userInformationToSend: ParcelUserInformation? = null
 
@@ -83,6 +86,7 @@ class ChoosePlayersFragment : Fragment() {
         container: ViewGroup?,
         chipsList: MutableList<Chip>
     ) {
+        binding.chipGroup.removeAllViews()
         playersList.forEach { playerName ->
             val chip = layoutInflater.inflate(R.layout.chip_item, container, false) as Chip
             chip.text = playerName
@@ -97,15 +101,11 @@ class ChoosePlayersFragment : Fragment() {
     }
 
     private fun setChipsForChipCategories(
-        container: ViewGroup?
+        container: ViewGroup?,
+        playersList: MutableList<String>
     ) {
         val chipsList = mutableListOf<Chip>()
-        val playersList = listOf<String>(
-            "Paweł", "Mateusz(Kikis)", "Mateusz", "Pati", "Łukasz", "Bartek", "Klaudia",
-            "Sara", "Sandra", "Michał", "Damian"
-        )
         addChipsToViewAndLoadChipsList(playersList, container, chipsList)
-
         setChipsListenerAndUpdateViewModel(chipsList)
     }
 
