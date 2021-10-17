@@ -36,10 +36,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/draw"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_current_checked_names_size" />
+
+        <Button
+            android:id="@+id/button_add_match_and_draw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_draw"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_draw" />
 
         <Button
             android:id="@+id/button_list_with_all_players"

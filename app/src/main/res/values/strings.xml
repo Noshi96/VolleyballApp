@@ -19,4 +19,7 @@
     <string name="update_players">Update Players</string>
     <string name="avatar">avatar</string>
     <string name="fab">fab</string>
+    <string name="new_draw">New Draw</string>
+    <string name="team_two">Team Two</string>
+    <string name="team_one">Team One</string>
 </resources>
