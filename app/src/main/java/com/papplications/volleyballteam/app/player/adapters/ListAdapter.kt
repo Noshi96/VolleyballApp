@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.papplications.volleyballteam.R
-import com.papplications.volleyballteam.app.player.model.Player
+import com.papplications.volleyballteam.app.match.model.Player
 import com.papplications.volleyballteam.app.player.view.list.PlayersListFragmentDirections
 import kotlinx.android.synthetic.main.custom_player_row.view.*
 

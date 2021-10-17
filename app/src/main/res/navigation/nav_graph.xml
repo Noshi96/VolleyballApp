@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_choosePlayersFragment_to_playersListFragment"
             app:destination="@id/playersListFragment" />
+        <action
+            android:id="@+id/action_choosePlayersFragment_to_drawPlayersAndAddMatchFragment"
+            app:destination="@id/drawPlayersAndAddMatchFragment" />
     </fragment>
     <fragment
         android:id="@+id/drawFragment"
@@ -56,7 +59,7 @@
         android:label="Update Player" >
         <argument
             android:name="currentPlayer"
-            app:argType="com.papplications.volleyballteam.app.player.model.Player" />
+            app:argType="com.papplications.volleyballteam.app.match.model.Player" />
         <action
             android:id="@+id/action_updatePlayerFragment_to_choosePlayersFragment"
             app:destination="@id/choosePlayersFragment" />
@@ -71,5 +74,13 @@
         <action
             android:id="@+id/action_playersListFragment_to_choosePlayersFragment"
             app:destination="@id/choosePlayersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drawPlayersAndAddMatchFragment"
+        android:name="com.papplications.volleyballteam.app.match.view.add.DrawPlayersAndAddMatchFragment"
+        android:label="Draw Players" >
+        <argument
+            android:name="playersNames"
+            app:argType="com.papplications.volleyballteam.app.feature.draw.model.ParcelUserInformation" />
     </fragment>
 </navigation>

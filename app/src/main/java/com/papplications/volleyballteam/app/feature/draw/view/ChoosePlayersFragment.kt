@@ -12,7 +12,7 @@ import com.google.android.material.chip.Chip
 import com.papplications.volleyballteam.R
 import com.papplications.volleyballteam.app.feature.draw.model.ParcelUserInformation
 import com.papplications.volleyballteam.app.feature.draw.viewmodel.DrawViewModel
-import com.papplications.volleyballteam.app.player.viewmodel.PlayerViewModel
+import com.papplications.volleyballteam.app.match.viewmodel.MatchViewModel
 import com.papplications.volleyballteam.databinding.FragmentChoosePlayersBinding
 import org.koin.android.ext.android.inject
 
@@ -20,9 +20,10 @@ import org.koin.android.ext.android.inject
 class ChoosePlayersFragment : Fragment() {
 
     private val viewModel: DrawViewModel by inject()
-    private val playerViewModel: PlayerViewModel by inject()
+    private val matchViewModel: MatchViewModel by inject()
     private lateinit var _binding: FragmentChoosePlayersBinding
     private val binding get() = _binding
+    private lateinit var userInformationToSend: ParcelUserInformation
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +32,7 @@ class ChoosePlayersFragment : Fragment() {
         _binding = FragmentChoosePlayersBinding.inflate(inflater, container, false)
 
         val playersList = mutableListOf<String>()
-        playerViewModel.fetchAllData.observe(viewLifecycleOwner, { players ->
+        matchViewModel.getAllPlayers.observe(viewLifecycleOwner, { players ->
             playersList.clear()
             players.forEach { player ->
                 playersList.add(player.name)
@@ -39,7 +40,6 @@ class ChoosePlayersFragment : Fragment() {
             setChipsForChipCategories(container, playersList)
         })
 
-        var userInformationToSend: ParcelUserInformation? = null
 
         viewModel.checkedChipsNamesList.observe(viewLifecycleOwner) {
             binding.textViewCurrentCheckedNamesSize.text = it.size.toString()
@@ -71,6 +71,12 @@ class ChoosePlayersFragment : Fragment() {
         binding.buttonListWithAllPlayers.setOnClickListener {
             val action =
                 ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToPlayersListFragment()
+            findNavController().navigate(action)
+        }
+
+        binding.buttonAddMatchAndDraw.setOnClickListener{
+            val action =
+                ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToDrawPlayersAndAddMatchFragment(userInformationToSend)
             findNavController().navigate(action)
         }
 

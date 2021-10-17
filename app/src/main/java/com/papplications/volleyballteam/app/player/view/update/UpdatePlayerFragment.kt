@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.papplications.volleyballteam.R
-import com.papplications.volleyballteam.app.player.model.Player
-import com.papplications.volleyballteam.app.player.viewmodel.PlayerViewModel
+import com.papplications.volleyballteam.app.match.viewmodel.MatchViewModel
+import com.papplications.volleyballteam.app.match.model.Player
 import com.papplications.volleyballteam.databinding.FragmentUpdatePlayerBinding
 import org.koin.android.ext.android.inject
 
 class UpdatePlayerFragment : Fragment() {
 
-    private val viewModel: PlayerViewModel by inject()
+    private val viewModel: MatchViewModel by inject()
     private val args: UpdatePlayerFragmentArgs by navArgs()
     private lateinit var _binding: FragmentUpdatePlayerBinding
     private val binding get() = _binding
@@ -43,7 +43,7 @@ class UpdatePlayerFragment : Fragment() {
     private fun updateData() {
         val name = binding.editTextNameUpdate.editText?.text.toString()
 
-        val updatePlayer = Player(id = args.currentPlayer.id, name = name, img = "")
+        val updatePlayer = Player(playerId = args.currentPlayer.playerId, name = name, img = "")
         viewModel.updatePlayer(updatePlayer)
 
         val action =
