@@ -1,6 +1,5 @@
 package com.papplications.volleyballteam.app.match.adapters
 
-import kotlinx.android.synthetic.main.custom_player_in_match_row.view.*
 import kotlinx.android.synthetic.main.custom_player_row.view.imageView_avatar
 import kotlinx.android.synthetic.main.custom_player_row.view.textView_name_in_row
 
@@ -10,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.papplications.volleyballteam.R
-import com.papplications.volleyballteam.app.match.model.Player
+import com.papplications.volleyballteam.app.player.model.Player
 
 class TeamAdapter : RecyclerView.Adapter<TeamAdapter.MyViewHolder>() {
 

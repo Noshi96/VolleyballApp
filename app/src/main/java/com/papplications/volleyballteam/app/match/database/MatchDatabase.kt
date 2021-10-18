@@ -9,13 +9,19 @@ import com.papplications.volleyballteam.app.match.converter.Converters
 import com.papplications.volleyballteam.app.match.model.Match
 import com.papplications.volleyballteam.app.match.model.MatchPlayerCrossRef
 import com.papplications.volleyballteam.app.match.model.Set
-import com.papplications.volleyballteam.app.match.model.Player
+import com.papplications.volleyballteam.app.player.database.PlayerDao
+import com.papplications.volleyballteam.app.player.model.Player
 
-@Database(entities = [Match::class, Player::class, Set::class, MatchPlayerCrossRef::class], version = 1, exportSchema = false)
+@Database(
+    entities = [Match::class, Player::class, Set::class, MatchPlayerCrossRef::class],
+    version = 1,
+    exportSchema = false
+)
 @TypeConverters(Converters::class)
 abstract class MatchDatabase : RoomDatabase() {
 
     abstract fun matchDao(): MatchDao
+    abstract fun playerDao(): PlayerDao
 
     companion object {
         @Volatile

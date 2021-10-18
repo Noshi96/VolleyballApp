@@ -13,6 +13,7 @@ import com.papplications.volleyballteam.R
 import com.papplications.volleyballteam.app.feature.draw.model.ParcelUserInformation
 import com.papplications.volleyballteam.app.feature.draw.viewmodel.DrawViewModel
 import com.papplications.volleyballteam.app.match.viewmodel.MatchViewModel
+import com.papplications.volleyballteam.app.player.viewmodel.PlayerViewModel
 import com.papplications.volleyballteam.databinding.FragmentChoosePlayersBinding
 import org.koin.android.ext.android.inject
 
@@ -21,6 +22,7 @@ class ChoosePlayersFragment : Fragment() {
 
     private val viewModel: DrawViewModel by inject()
     private val matchViewModel: MatchViewModel by inject()
+    private val playerViewModel: PlayerViewModel by inject()
     private lateinit var _binding: FragmentChoosePlayersBinding
     private val binding get() = _binding
     private lateinit var userInformationToSend: ParcelUserInformation
@@ -32,7 +34,7 @@ class ChoosePlayersFragment : Fragment() {
         _binding = FragmentChoosePlayersBinding.inflate(inflater, container, false)
 
         val playersList = mutableListOf<String>()
-        matchViewModel.getAllPlayers.observe(viewLifecycleOwner, { players ->
+        playerViewModel.getAllPlayers.observe(viewLifecycleOwner, { players ->
             playersList.clear()
             players.forEach { player ->
                 playersList.add(player.name)
@@ -76,7 +78,7 @@ class ChoosePlayersFragment : Fragment() {
 
         binding.buttonAddMatchAndDraw.setOnClickListener{
             val action =
-                ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToDrawPlayersAndAddMatchFragment(userInformationToSend)
+                ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToDrawPlayersFragment(userInformationToSend)
             findNavController().navigate(action)
         }
 

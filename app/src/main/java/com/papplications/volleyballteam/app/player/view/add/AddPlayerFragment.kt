@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.papplications.volleyballteam.app.match.viewmodel.MatchViewModel
-import com.papplications.volleyballteam.app.match.model.Player
+import com.papplications.volleyballteam.app.player.model.Player
+import com.papplications.volleyballteam.app.player.viewmodel.PlayerViewModel
 import com.papplications.volleyballteam.databinding.FragmentAddPlayerBinding
 import org.koin.android.ext.android.inject
 
 class AddPlayerFragment : Fragment() {
 
-    private val viewModel: MatchViewModel by inject()
+    private val viewModel: PlayerViewModel by inject()
     private lateinit var _binding: FragmentAddPlayerBinding
     private val binding get() = _binding
 

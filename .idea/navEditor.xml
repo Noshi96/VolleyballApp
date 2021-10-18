@@ -50,6 +50,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_choosePlayersFragment_to_drawPlayersFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_choosePlayersFragment_to_playersListFragment">
                               <value>
                                 <LayoutPositions />
@@ -93,13 +98,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="drawPlayersAndAddMatchFragment">
+                  <entry key="drawPlayersFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="230" />
-                            <option name="y" value="350" />
+                            <option name="x" value="235" />
+                            <option name="y" value="371" />
                           </Point>
                         </option>
                       </LayoutPositions>

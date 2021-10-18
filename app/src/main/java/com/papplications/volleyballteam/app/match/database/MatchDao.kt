@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.papplications.volleyballteam.app.match.model.*
 import com.papplications.volleyballteam.app.match.model.Set
-import com.papplications.volleyballteam.app.match.model.Player
 import java.sql.Date
 
 @Dao
@@ -57,9 +56,6 @@ interface MatchDao {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addPlayers(item: List<Player>)
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addMatches(item: List<Match>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -72,26 +68,5 @@ interface MatchDao {
     @Transaction
     @Query("SELECT * FROM player_table WHERE playerId = :playerId")
     fun getPlayerWithMatches(playerId: Int): LiveData<List<PlayerWithMatches>>
-
-    @Query("Select * FROM player_table ORDER BY playerId ASC")
-    fun getAllPlayers(): LiveData<List<Player>>
-
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addPlayer(player: Player)
-
-    @Update
-    suspend fun updatePlayer(player: Player)
-
-    @Delete
-    suspend fun deletePlayer(player: Player)
-
-    @Query("DELETE FROM player_table")
-    suspend fun deleteAllPlayers()
-
-    @Query("Select playerId FROM player_table WHERE name = :name")
-    fun getPlayerIdByName(name: String): Int
-
-    @Query("Select * FROM player_table WHERE name = :name")
-    fun getPlayerByName(name: String): Player?
 
 }

@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/android/Volleyball/app/src/main/res/layout/fragment_add_match.xml" value="0.21927083333333333" />
+        <entry key="..\:/android/Volleyball/app/src/main/res/layout/fragment_draw_players.xml" value="0.2171875" />
+        <entry key="..\:/android/Volleyball/app/src/main/res/layout/fragment_draw_players_and_add_match.xml" value="0.19157608695652173" />
+        <entry key="..\:/android/Volleyball/app/src/main/res/layout/fragment_result_of_the_draw.xml" value="0.22083333333333333" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
