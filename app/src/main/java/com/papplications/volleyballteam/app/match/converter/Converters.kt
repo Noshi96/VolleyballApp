@@ -2,7 +2,6 @@ package com.papplications.volleyballteam.app.match.converter
 
 import androidx.room.TypeConverter
 import java.sql.Date
-import java.text.DateFormat
 
 class Converters {
     @TypeConverter
