@@ -1,8 +1,5 @@
 package com.papplications.volleyballteam.app.match.adapters
 
-import kotlinx.android.synthetic.main.custom_player_row.view.imageView_avatar
-import kotlinx.android.synthetic.main.custom_player_row.view.textView_name_in_row
-
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.papplications.volleyballteam.R
 import com.papplications.volleyballteam.app.player.model.Player
+import kotlinx.android.synthetic.main.custom_player_row.view.*
 
 class TeamAdapter : RecyclerView.Adapter<TeamAdapter.MyViewHolder>() {
 
@@ -32,7 +30,7 @@ class TeamAdapter : RecyclerView.Adapter<TeamAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = playerList[position]
         holder.itemView.textView_name_in_row.text = currentItem.name
-        when (currentItem.name) {
+/*        when (currentItem.name) {
             "Mateusz(Kikis)" -> {
                 holder.itemView.imageView_avatar.setImageResource(R.drawable.kikis)
             }
@@ -45,7 +43,7 @@ class TeamAdapter : RecyclerView.Adapter<TeamAdapter.MyViewHolder>() {
             else -> {
                 holder.itemView.imageView_avatar.setImageResource(R.drawable.ic_baseline_person_24)
             }
-        }
+        }*/
 
     }
 

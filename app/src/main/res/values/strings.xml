@@ -22,4 +22,5 @@
     <string name="new_draw">New Draw</string>
     <string name="team_two">Team Two</string>
     <string name="team_one">Team One</string>
+    <string name="name">Name</string>
 </resources>
