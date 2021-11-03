@@ -15,10 +15,13 @@
     <fragment
         android:id="@+id/drawMethodFragment"
         android:name="com.papplications.volleyballteam.app.feature.draw.view.DrawMethodFragment"
-        android:label="Choose draw method" >
+        android:label="Choose draw method">
         <action
             android:id="@+id/action_drawMethodFragment_to_choosePlayersFragment"
             app:destination="@id/choosePlayersFragment" />
+        <action
+            android:id="@+id/action_drawMethodFragment_to_bottleDrawFragment"
+            app:destination="@id/bottleDrawFragment" />
     </fragment>
     <fragment
         android:id="@+id/choosePlayersFragment"
@@ -78,9 +81,13 @@
     <fragment
         android:id="@+id/drawPlayersFragment"
         android:name="com.papplications.volleyballteam.app.player.view.DrawPlayersFragment"
-        android:label="Draw Players!" >
+        android:label="Draw Players!">
         <argument
             android:name="playersNames"
             app:argType="com.papplications.volleyballteam.app.feature.draw.model.ParcelUserInformation" />
     </fragment>
+    <fragment
+        android:id="@+id/bottleDrawFragment"
+        android:name="com.papplications.volleyballteam.app.feature.draw.view.BottleDrawFragment"
+        android:label="BottleDrawFragment" />
 </navigation>

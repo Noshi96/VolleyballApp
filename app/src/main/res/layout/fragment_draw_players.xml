@@ -23,9 +23,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
                     android:text="@string/team_one"
-                    android:textSize="32sp"
                     android:textColor="@color/black"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,28 +36,47 @@
                     android:layout_marginTop="32dp"
                     android:text="@string/team_two"
                     android:textColor="@color/black"
-                    android:textSize="32sp"
+                    android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recyclerView_team_a" />
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.50" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.90" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.10" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView_team_a"
-                    android:layout_width="match_parent"
+                    android:layout_width="195dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView_team_one" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView_team_b"
-                    android:layout_width="match_parent"
+                    android:layout_width="195dp"
                     android:layout_height="match_parent"
                     android:layout_marginTop="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/guideline2"
                     app:layout_constraintTop_toBottomOf="@id/textView_team_two" />
 
                 <Button

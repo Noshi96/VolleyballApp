@@ -33,7 +33,13 @@ class DrawMethodFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonAutoDraw.setOnClickListener {
-            val action = DrawMethodFragmentDirections.actionDrawMethodFragmentToChoosePlayersFragment()
+            val action =
+                DrawMethodFragmentDirections.actionDrawMethodFragmentToChoosePlayersFragment()
+            findNavController().navigate(action)
+        }
+
+        binding.buttonBottleDraw.setOnClickListener {
+            val action = DrawMethodFragmentDirections.actionDrawMethodFragmentToBottleDrawFragment()
             findNavController().navigate(action)
         }
     }

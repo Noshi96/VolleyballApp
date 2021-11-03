@@ -56,8 +56,8 @@ class DrawPlayersFragment : Fragment() {
         recyclerViewTeamB.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.updateAdapters.observe(viewLifecycleOwner, {
-            adapterTeamA.setData(teamA)
-            adapterTeamB.setData(teamB)
+            adapterTeamA.setData(teamA, "1")
+            adapterTeamB.setData(teamB, "2")
         })
 
         CoroutineScope(Dispatchers.IO).launch {

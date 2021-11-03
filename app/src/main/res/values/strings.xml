@@ -22,4 +22,6 @@
     <string name="team_two">Team Two</string>
     <string name="team_one">Team One</string>
     <string name="name">Name</string>
+    <string name="_2">2</string>
+    <string name="choose_all">Choose all</string>
 </resources>

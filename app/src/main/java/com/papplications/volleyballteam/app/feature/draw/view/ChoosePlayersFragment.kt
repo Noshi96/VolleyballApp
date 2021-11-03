@@ -42,7 +42,6 @@ class ChoosePlayersFragment : Fragment() {
             setChipsForChipCategories(container, playersList)
         })
 
-
         viewModel.checkedChipsNamesList.observe(viewLifecycleOwner) {
             binding.textViewCurrentCheckedNamesSize.text = it.size.toString()
             val userInformation = viewModel.checkedChipsNamesList.value?.let {
@@ -114,6 +113,11 @@ class ChoosePlayersFragment : Fragment() {
     ) {
         val chipsList = mutableListOf<Chip>()
         addChipsToViewAndLoadChipsList(playersList, container, chipsList)
+
+        binding.buttonChooseAll.setOnClickListener {
+            setAllChips(chipsList)
+        }
+
         setChipsListenerAndUpdateViewModel(chipsList)
     }
 
@@ -130,5 +134,19 @@ class ChoosePlayersFragment : Fragment() {
                 )
             }
         }
+    }
+
+    private fun setAllChips(chipsList: MutableList<Chip>) {
+        chipsList.forEach { chip ->
+            chip.isChecked = true
+        }
+        val currentCheckedNames = mutableListOf<String>()
+        binding.chipGroup.checkedChipIds.forEach { chipId ->
+            currentCheckedNames.add(binding.chipGroup.findViewById<Chip>(chipId).text.toString())
+        }
+        viewModel.onSelectedChipChangesSendToViewModel(
+            binding.chipGroup.checkedChipIds,
+            currentCheckedNames
+        )
     }
 }
