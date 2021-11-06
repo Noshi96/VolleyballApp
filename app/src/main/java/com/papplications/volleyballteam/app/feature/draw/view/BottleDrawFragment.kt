@@ -42,8 +42,9 @@ class BottleDrawFragment : Fragment() {
     }
 
     fun spinBottle(v: View?) {
+        var spinDegree: Int = 0
         if (!spinning) {
-            val newDir: Int = random.nextInt(until = 1800, from = 500)
+            val newDir: Int = random.nextInt(until = 3600)
             val pivotX: Float = bottle?.width?.toFloat()?.div(2) ?: 1.0f
             val pivotY: Float = bottle?.height?.toFloat()?.div(2) ?: 1.0f
             val rotate: Animation =
@@ -61,6 +62,7 @@ class BottleDrawFragment : Fragment() {
 
                 override fun onAnimationRepeat(animation: Animation) {}
             })
+            spinDegree = newDir % 360
             lastDir = newDir
             bottle?.startAnimation(rotate)
         }

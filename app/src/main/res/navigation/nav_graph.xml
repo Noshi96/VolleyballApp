@@ -85,9 +85,12 @@
         <argument
             android:name="playersNames"
             app:argType="com.papplications.volleyballteam.app.feature.draw.model.ParcelUserInformation" />
+        <argument
+            android:name="showAvatars"
+            app:argType="boolean" />
     </fragment>
     <fragment
         android:id="@+id/bottleDrawFragment"
         android:name="com.papplications.volleyballteam.app.feature.draw.view.BottleDrawFragment"
-        android:label="BottleDrawFragment" />
+        android:label="Butelka" />
 </navigation>

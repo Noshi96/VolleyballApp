@@ -1,8 +1,6 @@
 package com.papplications.volleyballteam.app.player.viewmodel
 
 import android.app.Application
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -70,7 +68,38 @@ class PlayerViewModel(application: Application, private val drawService: DrawSer
         return repository.getPlayerByName(name)
     }
 
-    fun drawOneTeam(names: List<String>): MutableList<String>{
+    fun drawOneTeam(names: List<String>): MutableList<String> {
         return drawService.drawOneTeam(names)
     }
+
+    fun fillDataBase() {
+        deleteAllPlayers()
+
+        val playersNames = listOf(
+            "Ania",
+            "Bartek",
+            "Damian",
+            "Jędrzej",
+            "Kikis",
+            "Klaudia",
+            "Koala",
+            "Łukasz",
+            "Mateusz",
+            "Oliwia",
+            "Pati",
+            "Patison",
+            "Paweł",
+            "Rafał",
+            "Sandra",
+            "Sara",
+            "Oskar"
+        )
+        viewModelScope.launch(Dispatchers.IO) {
+            playersNames.forEach { playerName ->
+                val player = Player(playerId = 0, name = playerName, img = "")
+                addPlayer(player)
+            }
+        }
+    }
+
 }

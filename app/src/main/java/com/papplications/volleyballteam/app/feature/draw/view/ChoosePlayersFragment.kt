@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
@@ -55,13 +54,13 @@ class ChoosePlayersFragment : Fragment() {
             }
         }
 
-        binding.buttonDraw.setOnClickListener {
+/*        binding.buttonDraw.setOnClickListener {
             val passWithBundle = bundleOf("BUNDLE_KEY" to userInformationToSend)
             findNavController().navigate(
                 R.id.action_choosePlayersFragment_to_drawFragment,
                 passWithBundle
             )
-        }
+        }*/
 
         binding.floatingActionButton.setOnClickListener {
             val action =
@@ -77,7 +76,10 @@ class ChoosePlayersFragment : Fragment() {
 
         binding.buttonAddMatchAndDraw.setOnClickListener{
             val action =
-                ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToDrawPlayersFragment(userInformationToSend)
+                ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToDrawPlayersFragment(
+                    userInformationToSend,
+                    binding.checkBoxShowAvatars.isChecked
+                )
             findNavController().navigate(action)
         }
 

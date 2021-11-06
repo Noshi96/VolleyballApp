@@ -24,4 +24,6 @@
     <string name="name">Name</string>
     <string name="_2">2</string>
     <string name="choose_all">Choose all</string>
+    <string name="show_avatars">Show avatars</string>
+    <string name="load_database">Load database</string>
 </resources>

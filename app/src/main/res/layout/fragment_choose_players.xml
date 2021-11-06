@@ -40,6 +40,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chip_group" />
 
+<!--
         <Button
             android:id="@+id/button_draw"
             android:layout_width="wrap_content"
@@ -48,6 +49,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_current_checked_names_size" />
+-->
 
         <Button
             android:id="@+id/button_add_match_and_draw"
@@ -56,7 +58,7 @@
             android:text="@string/new_draw"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_draw" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_current_checked_names_size" />
 
         <Button
             android:id="@+id/button_list_with_all_players"
@@ -66,6 +68,15 @@
             app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
             app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBox_show_avatars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_avatars"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_add_match_and_draw" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:contentDescription="@string/fab"

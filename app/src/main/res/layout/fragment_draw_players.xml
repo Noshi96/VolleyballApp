@@ -79,6 +79,15 @@
                     app:layout_constraintStart_toStartOf="@+id/guideline2"
                     app:layout_constraintTop_toBottomOf="@id/textView_team_two" />
 
+                <!--                <View
+                                    android:layout_width="10dp"
+                                    android:layout_height="match_parent"
+                                    android:background="#000000"
+                                    app:layout_constraintBottom_toTopOf="@+id/button_draw_again"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />-->
+
                 <Button
                     android:id="@+id/button_draw_again"
                     android:layout_width="wrap_content"
@@ -87,7 +96,17 @@
                     android:text="@string/draw_again"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recyclerView_team_b" />
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerView_team_a" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button_draw_again"
+                    app:srcCompat="@drawable/siata_logo" />
 
                 <!--                <View
                                     android:id="@+id/view"
