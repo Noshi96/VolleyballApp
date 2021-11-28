@@ -10,11 +10,18 @@ import com.papplications.volleyballteam.app.player.model.Player
 import kotlinx.android.synthetic.main.custom_player_in_match_row.view.*
 import kotlinx.android.synthetic.main.custom_player_row.view.textView_name_in_row
 
+
 class TeamAdapter : RecyclerView.Adapter<TeamAdapter.MyViewHolder>() {
 
-    private var playerList = emptyList<Player>()
+    private var playerList = mutableListOf<Player>()
     private var chosenTeam = "0"
     private var showAvatars = false
+    private var chosenTeamsLists = true
+    private var holeTeamList = false
+    private var chooseFirst = false
+    private lateinit var teamA: TeamAdapter
+    private lateinit var teamB: TeamAdapter
+    private lateinit var holeTeam: TeamAdapter
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -31,13 +38,42 @@ class TeamAdapter : RecyclerView.Adapter<TeamAdapter.MyViewHolder>() {
         return playerList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = playerList[position]
+
         holder.itemView.text_view_number.text = chosenTeam
         holder.itemView.textView_name_in_row.text = currentItem.name
+
+        if (chosenTeamsLists) {
+            holder.itemView.imageView_delete.visibility = View.VISIBLE
+            holder.itemView.imageView_delete.setOnClickListener {
+                playerList.remove(currentItem)
+                holeTeam.fixOrderOfChoosing()
+                holeTeam.addPlayer(currentItem)
+                notifyDataSetChanged()
+            }
+        } else {
+            holder.itemView.imageView_delete.visibility = View.GONE
+        }
+
+        if (holeTeamList) {
+            holder.itemView.setOnClickListener {
+                if (chooseFirst) {
+                    playerList.remove(currentItem)
+                    teamA.addPlayer(currentItem)
+                    this.chooseFirst = !chooseFirst
+                    notifyDataSetChanged()
+                } else {
+                    playerList.remove(currentItem)
+                    teamB.addPlayer(currentItem)
+                    this.chooseFirst = !chooseFirst
+                    notifyDataSetChanged()
+                }
+            }
+        }
+
         if (showAvatars) {
-
-
             when (currentItem.name) {
                 "Mateusz(Kikis)" -> {
                     holder.itemView.imageView_avatar_inside.setImageResource(R.drawable.kikis)
@@ -102,10 +138,42 @@ class TeamAdapter : RecyclerView.Adapter<TeamAdapter.MyViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(players: List<Player>, chosenTeam: String, showAvatars: Boolean) {
+    fun setData(
+        players: MutableList<Player>,
+        chosenTeam: String,
+        showAvatars: Boolean,
+        chosenTeamsLists: Boolean,
+        holeTeamList: Boolean,
+        teamA: TeamAdapter,
+        teamB: TeamAdapter,
+        holeTeam: TeamAdapter,
+        chooseFirst: Boolean
+    ) {
         this.playerList = players
         this.chosenTeam = chosenTeam
         this.showAvatars = showAvatars
+        this.chosenTeamsLists = chosenTeamsLists
+        this.holeTeamList = holeTeamList
+        this.teamA = teamA
+        this.teamB = teamB
+        this.holeTeam = holeTeam
+        this.chooseFirst = chooseFirst
         notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun addPlayer(
+        player: Player,
+    ) {
+        this.playerList.add(player)
+        notifyDataSetChanged()
+    }
+
+    fun getTeamLeader(): Player {
+        return playerList[0]
+    }
+
+    fun fixOrderOfChoosing() {
+        this.chooseFirst = !this.chooseFirst
     }
 }

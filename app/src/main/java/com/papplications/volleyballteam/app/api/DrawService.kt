@@ -24,4 +24,23 @@ class DrawService {
         list.removeIf { i -> randomElements2.contains(i) }
         return list
     }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun drawTwoPlayers(names: List<String>): MutableList<String> {
+        val list: MutableList<String> = ArrayList()
+        names.toMutableSet().let { it1 -> list.addAll(it1) }
+        val randomElements2 = list.asSequence().shuffled().take(2).toList()
+        return randomElements2.toMutableList()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun deleteChosenPlayersAndReturnListWithRestPlayers(
+        names: List<String>,
+        chosenPlayers: MutableList<String>
+    ): MutableList<String> {
+        val list: MutableList<String> = ArrayList()
+        names.toMutableSet().let { it1 -> list.addAll(it1) }
+        list.removeIf { i -> chosenPlayers.contains(i) }
+        return list
+    }
 }

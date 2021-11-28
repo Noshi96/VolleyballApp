@@ -68,8 +68,23 @@ class PlayerViewModel(application: Application, private val drawService: DrawSer
         return repository.getPlayerByName(name)
     }
 
+    fun makeUpdateOnAdapters() {
+        _updateAdapters.postValue(updateAdapters.value != true)
+    }
+
     fun drawOneTeam(names: List<String>): MutableList<String> {
         return drawService.drawOneTeam(names)
+    }
+
+    fun drawTwoPlayers(names: List<String>): MutableList<String> {
+        return drawService.drawTwoPlayers(names)
+    }
+
+    fun deleteChosenPlayersAndReturnListWithRestPlayers(
+        names: List<String>,
+        chosenPlayers: MutableList<String>
+    ): MutableList<String> {
+        return drawService.deleteChosenPlayersAndReturnListWithRestPlayers(names, chosenPlayers)
     }
 
     fun fillDataBase() {

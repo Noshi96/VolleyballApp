@@ -74,9 +74,18 @@ class ChoosePlayersFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        binding.buttonAddMatchAndDraw.setOnClickListener{
+        binding.buttonAddMatchAndDraw.setOnClickListener {
             val action =
                 ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToDrawPlayersFragment(
+                    userInformationToSend,
+                    binding.checkBoxShowAvatars.isChecked
+                )
+            findNavController().navigate(action)
+        }
+
+        binding.buttonChooseManually.setOnClickListener {
+            val action =
+                ChoosePlayersFragmentDirections.actionChoosePlayersFragmentToChooseManuallyTeammatesFragment(
                     userInformationToSend,
                     binding.checkBoxShowAvatars.isChecked
                 )
@@ -150,5 +159,67 @@ class ChoosePlayersFragment : Fragment() {
             binding.chipGroup.checkedChipIds,
             currentCheckedNames
         )
+    }
+
+    private fun findPhoto(name: String): Int {
+        when (name) {
+            "Mateusz(Kikis)" -> {
+                return R.drawable.kikis
+            }
+            "Kikis" -> {
+                return (R.drawable.kikis)
+            }
+            "Pawel" -> {
+                return (R.drawable.pawel)
+            }
+            "Paweł" -> {
+                return (R.drawable.pawel)
+            }
+            "Pati" -> {
+                return (R.drawable.pati)
+            }
+            "Klaudia" -> {
+                return (R.drawable.klaudia)
+            }
+            "Mateusz" -> {
+                return (R.drawable.mateusz)
+            }
+            "Łukasz" -> {
+                return (R.drawable.lukasz)
+            }
+            "Sara" -> {
+                return (R.drawable.sara)
+            }
+            "Sandra" -> {
+                return (R.drawable.sandra)
+            }
+            "Ania" -> {
+                return (R.drawable.ania)
+            }
+            "Oskar" -> {
+                return (R.drawable.oskar)
+            }
+            "Damian" -> {
+                return (R.drawable.damian)
+            }
+            "Oliwia" -> {
+                return (R.drawable.olivia)
+            }
+            "Koala" -> {
+                return (R.drawable.michal)
+            }
+            "Jędrzej" -> {
+                return (R.drawable.jedrzej)
+            }
+            "Patison" -> {
+                return (R.drawable.patison)
+            }
+            "Rafał" -> {
+                return (R.drawable.rafal)
+            }
+            else -> {
+                return (R.drawable.ic_baseline_person_24)
+            }
+        }
     }
 }

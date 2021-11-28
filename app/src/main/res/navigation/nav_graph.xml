@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
 
@@ -39,6 +40,9 @@
         <action
             android:id="@+id/action_choosePlayersFragment_to_drawPlayersFragment"
             app:destination="@id/drawPlayersFragment" />
+        <action
+            android:id="@+id/action_choosePlayersFragment_to_chooseManuallyTeammatesFragment"
+            app:destination="@id/chooseManuallyTeammatesFragment" />
     </fragment>
     <fragment
         android:id="@+id/drawFragment"
@@ -93,4 +97,16 @@
         android:id="@+id/bottleDrawFragment"
         android:name="com.papplications.volleyballteam.app.feature.draw.view.BottleDrawFragment"
         android:label="Butelka" />
+    <fragment
+        android:id="@+id/chooseManuallyTeammatesFragment"
+        android:name="com.papplications.volleyballteam.app.feature.draw.view.ChooseManuallyTeammatesFragment"
+        android:label="Wybieramy się!"
+        tools:layout="@layout/fragment_choose_manualy_teammates">
+        <argument
+            android:name="playersNames"
+            app:argType="com.papplications.volleyballteam.app.feature.draw.model.ParcelUserInformation" />
+        <argument
+            android:name="showAvatars"
+            app:argType="boolean" />
+    </fragment>
 </navigation>

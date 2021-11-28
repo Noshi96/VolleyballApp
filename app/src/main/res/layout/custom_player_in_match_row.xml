@@ -70,6 +70,17 @@
         app:layout_constraintTop_toTopOf="@+id/textView_name_in_row"
         tools:ignore="RtlSymmetry" />
 
+    <ImageView
+        android:id="@+id/imageView_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/text_view_number"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_delete_forever_24" />
+
+
     <!--    <View
             android:id="@+id/view"
             android:layout_width="match_parent"
